@@ -1,0 +1,26 @@
+{
+  "name": "lint-rules",
+  "version": "0.0.1",
+  "description": "Lint rules for my projects",
+  "main": "entry-point.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcnvdl/lint-rules.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lcnvdl/lint-rules/issues"
+  },
+  "homepage": "https://github.com/lcnvdl/lint-rules#readme"
+}
