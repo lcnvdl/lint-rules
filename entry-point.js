@@ -4,15 +4,17 @@ module.exports = ({ CommandBase, commands }) => {
 
     class LintRulesCommand extends CommandBase {
         async run(args) {
-            if (args[0] === "init-js") {
-                return await this._initializeJs();
-            }
-            else if(arg[0] === "update") {
-                await this._update();
-                return await this._copyEslintFile();
-            }
-            else if(arg[0] === "copy") {
-                return await this._copyEslintFile();
+            if(args[0] === "js") {
+                if (args[1] === "init") {
+                    return await this._initializeJs();
+                }
+                else if(arg[1] === "update") {
+                    await this._update();
+                    return await this._copyEslintFile();
+                }
+                else if(arg[1] === "copy") {
+                    return await this._copyEslintFile();
+                }
             }
 
             return this.codes.invalidArguments;

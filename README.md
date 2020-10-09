@@ -1,5 +1,30 @@
 # lint-rules
 Lint rules for my projects
 
-## Javascript
-npm i --save-dev eslint eslint-plugin-import eslint-config-airbnb-base
+## Prerequisites
+```bash
+npm i -g bilderhic
+```
+
+## Install
+```bash
+bhic -c extension install https://github.com/lcnvdl/lint-rules.git
+```
+
+## Usage
+Initialize eslint
+```bash
+bhic -c lint-rules js init
+```
+
+Update repository and eslint rc
+```bash
+bhic -c lint-rules js update
+```
+
+Copy eslint rc from repository
+```bash
+bhic -c lint-rules js copy
+```
+
+~~ De nada
