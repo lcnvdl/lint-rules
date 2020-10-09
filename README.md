@@ -8,7 +8,7 @@ npm i -g bilderhic
 
 ## Install
 ```bash
-bhic -c extension install https://github.com/lcnvdl/lint-rules.git
+bhic -c extension install https://github.com/lcnvdl/lint-rules.git lint-rules
 ```
 
 ## Usage
