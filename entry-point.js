@@ -7,20 +7,22 @@ module.exports = ({ CommandBase, commands }) => {
 
   class LintRulesCommand extends CommandBase {
     async run(args) {
-      if (args[0] === "js") {
-        if (args[1] === "init") {
-          return await this._initializeJs();
-        }
-
-        if (args[1] === "update") {
-          await this._update();
-          return await this._copyEslintFile();
-        }
-
-        if (args[1] === "copy") {
-          return await this._copyEslintFile();
-        }
+      if (args[0] === "install") {
+        this.environment.setVariable("rule-name", args[1]);
+        return await this._initializeJs();
       }
+
+      if (args[0] === "update") {
+        this.environment.setVariable("force", args[1] || "");
+        await this._update();
+        return await this._copyEslintFile();
+      }
+
+      if (args[0] === "copy") {
+        this.environment.setVariable("rule-name", args[1]);
+        return await this._copyEslintFile();
+      }
+
 
       return this.codes.invalidArguments;
     }

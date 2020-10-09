@@ -1,1 +1,1 @@
-copy "[lint-rules-dir]/js/.eslintrc.json" ".eslintrc.json"
+copy "[lint-rules-dir]/[rule-name]/.eslintrc.json" ".eslintrc.json"

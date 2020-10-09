@@ -8,6 +8,6 @@ echo Installing ESLint Chai plugin...
 npm i eslint-plugin-chai-friendly --save-dev
 
 Echo Copying Json...
-copy "[lint-rules-dir]/js/.eslintrc.json" ".eslintrc.json"
+copy "[lint-rules-dir]/[rule-name]/.eslintrc.json" ".eslintrc.json"
 
 echo Success
