@@ -53,6 +53,12 @@
         "argsIgnorePattern": "^_",
         "caughtErrorsIgnorePattern": "^(ignore|_)"
       }
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
     ]
   }
 }
