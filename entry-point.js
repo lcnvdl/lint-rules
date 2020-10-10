@@ -14,8 +14,14 @@ module.exports = ({ CommandBase, commands }) => {
 
       if (args[0] === "update") {
         this.environment.setVariable("force", args[1] || "");
-        await this._update();
-        return await this._copyEslintFile();
+        let result = await this._update();
+
+        if (args[2] && args[2] !== "") {
+          this.environment.setVariable("rule-name", args[2]);
+          result = await this._copyEslintFile();
+        }
+
+        return result;
       }
 
       if (args[0] === "copy") {
