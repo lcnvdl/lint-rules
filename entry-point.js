@@ -7,30 +7,61 @@ module.exports = ({ CommandBase, commands }) => {
 
   class LintRulesCommand extends CommandBase {
     async run(args) {
+      if (args[i] === "--help" || args[i] === "-h") {
+        return this._showHelp();
+      }
+
       if (args[0] === "install") {
+        if (!args[1] || args[1] === "") {
+          return this.code.missingArguments;
+        }
+
         this.environment.setVariable("rule-name", args[1]);
         return await this._initializeJs();
       }
 
       if (args[0] === "update") {
-        this.environment.setVariable("force", args[1] || "");
+        let forced;
+        let rule;
+
+        if (args[1] === "-f" || args[1] === "--force") {
+          forced = args[1];
+          rule = args[2];
+        }
+        else {
+          forced = "";
+          rule = args[1];
+        }
+
+        this.environment.setVariable("force", forced);
         let result = await this._update();
 
-        if (args[2] && args[2] !== "") {
-          this.environment.setVariable("rule-name", args[2]);
-          result = await this._copyEslintFile();
+        if (rule && rule !== "") {
+          this.environment.setVariable("rule-name", rule);
+          return await this._copyEslintFile();
         }
 
         return result;
       }
 
       if (args[0] === "copy") {
+        if (!args[1] || args[1] === "") {
+          return this.code.missingArguments;
+        }
+
         this.environment.setVariable("rule-name", args[1]);
         return await this._copyEslintFile();
       }
 
-
       return this.codes.invalidArguments;
+    }
+
+    _showHelp() {
+      console.log("Lint Rules");
+      console.log("install <rule name>\t\tInstalls all the node dependencies and copies the rules file");
+      console.log("update [-f or --force]\t\tUpdates the rules");
+      console.log("copy <rule name>\t\tCopies the rules file");
+      return this.codes.success;
     }
 
     async _initializeJs() {
