@@ -7,7 +7,7 @@ module.exports = ({ CommandBase, commands }) => {
 
   class LintRulesCommand extends CommandBase {
     async run(args) {
-      if (args[i] === "--help" || args[i] === "-h") {
+      if (args[0] === "--help" || args[0] === "-h") {
         return this._showHelp();
       }
 
