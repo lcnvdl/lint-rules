@@ -59,6 +59,11 @@
       {
         "functions": false
       }
-    ]
+    ],
+    "function-paren-newline": [
+      "error",
+      "never"
+    ],
+    "func-names": "off"
   }
 }
